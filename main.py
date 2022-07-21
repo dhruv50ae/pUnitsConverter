@@ -1,21 +1,21 @@
-def add(*args):
-    total = 0
-    for n in args:
-        total += n
-    return total
+from tkinter import *
 
-sum = add(1,1,2,3,4,5,6,6,7,8,2)
+window = Tk()
+window.minsize(500, 300)
 
-# print(sum)
+myLabel = Label(text="I am a label", font=("Arial", 24, "bold"))
+myLabel.pack()
 
-def calculator(n, **kwargs):
-    # print(kwargs)
-    # for key, values in kwargs.items():
-    #     print(key)
-    #     print(values)
-    n+=kwargs["add"]
-    n*=kwargs["multiply"]
-    return n
+myLabel["text"] = "New Text"
+myLabel.config(text="This is some new text")
 
-total = calculator(1, add = 2, multiply = 5)
-print(total)
+def clickedB():
+    myLabel["text"] = input.get()
+
+myButton = Button(text="Click", command = clickedB )
+myButton.pack()
+
+input = Entry(width=10)
+input.pack()
+
+window.mainloop()
