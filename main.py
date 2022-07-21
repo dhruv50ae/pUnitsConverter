@@ -1,12 +1,9 @@
-import tkinter
+def add(*args):
+    total = 0
+    for n in args:
+        total += n
+    return total
 
-window = tkinter.Tk()
-window.title("Something")
-window.minsize(500,300)
+sum = add(1,1,2,3,4,5,6,6,7,8,2)
 
-FONT = ("Arial", 24, "bold")
-
-myLabel = tkinter.Label(text =  "I am a label", font=FONT)
-myLabel.pack()
-
-window.mainloop()
+print(sum)
