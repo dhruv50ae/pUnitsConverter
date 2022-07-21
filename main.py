@@ -1,22 +1,29 @@
 from tkinter import *
 
-def clickedB():
-    myLabel["text"] = input.get()
-
 window = Tk()
-window.minsize(500, 300)
-window.config(padx=100, pady=100)
+window.minsize(200, 200)
 
-myLabel = Label(text="I am a label", font=("Arial", 24, "bold"))
-myLabel.grid(column=0, row=0)
+window.title("Miles to kilometer converter")
 
-myLabel["text"] = "New Text"
-myLabel.config(text="This is some new text")
+kilometers = 0
 
-myButton = Button(text="Click", command = clickedB )
-myButton.grid(column=1, row=1)
+def converter():
+    oldNum = int(milesInput.get())
+    newNum = oldNum * 1.60934
+    kMLabel["text"] = f"{newNum} kilometers"
 
-input = Entry(width=10)
-input.grid(column=3, row=3)
+milesInput = Entry(width=10)
+milesInput.grid(row=0, column=1)
+
+milesLabel = Label(text="Miles to")
+milesLabel.grid(row=0, column=2)
+
+kMLabel = Label(text="0 Kilometers")
+kMLabel.grid(row=1, column=1)
+
+button = Button(text="Convert", command=converter)
+button.grid(row=1, column=2)
+
+
 
 window.mainloop()
